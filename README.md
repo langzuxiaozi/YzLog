@@ -9,7 +9,7 @@ Swift 代码编写的关于日志打印的需求
 2. 可以在 App 界面最上层显示日志，只有显示功能
 3. 在浏览器实时展示APP的日志。启动server，可以在电脑的浏览器输入 `http://ip:8080/` (ip为手机的IP地址)
 
-以上功能只有通过 `log.info()` 打印的日志才可以，`log` 为 `YzLog()`的实例对象
+**以上功能只有通过 `log.info()` 打印的日志才可以，`log` 为 `YzLog()`的实例对象**
 
 #### 应用方式
 
@@ -78,3 +78,5 @@ ViewController.Swift
 ```Swift
     log.httpServer(enable: sender.isOn)
 ```
+
+最后我是通过宏 ADHOC 和 DEBUG 来控制是否在 “测试包”、“debug包”和“App Store包” 中显示这些功能的
