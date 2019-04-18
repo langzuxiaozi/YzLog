@@ -4,14 +4,14 @@ Swift 代码编写的关于日志打印的需求
 
 外面操作的类是 **YzLog()**
 
-#### 功能 
+### 功能 
 1. debug 时打印日志，release 时不打印日志
 2. 可以在 App 界面最上层显示日志，只有显示功能
 3. 在浏览器实时展示APP的日志。启动server，可以在电脑的浏览器输入 `http://ip:8080/` (ip为手机的IP地址)
 
 **以上功能只有通过 `log.info()` 打印的日志才可以，`log` 为 `YzLog()`的实例对象**
 
-#### 应用方式
+### 应用方式
 
 AppDelegate.swift
 ```Swift
@@ -36,7 +36,7 @@ ViewController.Swift
     }
 ```
 
-#### YzLog() 的进化过程
+### YzLog() 的进化过程
 最开始的需求只是打印的调试日志不想 release 版本的时候也打印。所以就有了 `info` 函数
 ```Swift
     public func info<T>(_ message: T,
@@ -80,3 +80,7 @@ ViewController.Swift
 ```
 
 最后我是通过宏 ADHOC 和 DEBUG 来控制是否在 “测试包”、“debug包”和“App Store包” 中显示这些功能的
+
+
+###第三方框架
+http server [GCDWebServer](https://github.com/swisspol/GCDWebServer)
