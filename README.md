@@ -49,7 +49,7 @@ ViewController.Swift
         #endif
     }    
 ```
-然后做了一个没有UI的下载功能，QA 没有办法黑盒测试，只能靠打印的日志来查看功能完成情况，所以就有了日志在 App 界面显示的功能
+然后做了一个没有UI的后台下载功能，QA 没有办法黑盒测试，只能靠打印的日志来查看功能完成情况，所以就有了日志在 App 界面显示的功能
 
 `info` 函数中的关键代码
 ```Swift
@@ -78,9 +78,11 @@ ViewController.Swift
 ```Swift
     log.httpServer(enable: sender.isOn)
 ```
+正常情况下App切后台后就挂起了，但是后台下载任务完成后会在后台唤起 App，是可以打印日志的。所以这些日志是留在内存中的，我这里做了限制，只保存最新的100条。当 App 切到前台后，刷新网页就可以看到 App 在后台打印的最多100条日志了
 
-最后我是通过宏 ADHOC 和 DEBUG 来控制是否在 “测试包”、“debug包”和“App Store包” 中显示这些功能的
+
+最后我是通过宏 DEBUG 和自定义宏 ADHOC 来控制是否在 “测试包”、“debug包”和“App Store包” 中显示这些功能的
 
 
-###第三方框架
+### 第三方框架
 http server [GCDWebServer](https://github.com/swisspol/GCDWebServer)
